@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Smoothie Store</title>
+  <link rel="stylesheet" href="style.css" /> <!-- Link your main styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fffaf7;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-box {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .signup-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .signup-box button {
+      width: 100%;
+      background: #4CAF50;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .signup-box button:hover {
+      background: #43a047;
+    }
+
+    .signup-box p {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .signup-box p a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .signup-box p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <div class="signup-box">
+      <h2>Create Account 🥤</h2>
+      <form id="signupForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="signin.html">Sign In</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = e.target[0].value.trim();
+      const email = e.target[1].value.trim();
+      const pass = e.target[2].value;
+      const confirmPass = e.target[3].value;
+
+      if (pass !== confirmPass) {
+        alert("❌ Passwords do not match!");
+        return;
+      }
+
+      // Simulate saving to localStorage (you can later replace this with real backend/Firebase)
+      const user = { name, email, password: pass };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      alert("✅ Account created! You can now sign in.");
+      window.location.href = "signin.html";
+    });
+  </script>
+
+</body>
+</html>

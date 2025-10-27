@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smoothie Bliss</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="amu.css" />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+    }
+    main {
+      flex: 1;
+    }
+    .navbar-brand {
+      font-weight: 500;
+      color: white !important;
+      font-family: inherit;
+    }
+    .nav-link {
+      color: #ffffff;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+      color: #e83e8c;
+      transform: translateY(-3px);
+    }
+    .nav-link.active {
+      color: #e83e8c;
+      font-weight: 600;
+    }
+    .navbar-dark .navbar-toggler-icon {
+      filter: invert(1);
+    }
+    header {
+      padding-top: 70px;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    #cart-add {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 40px;
+    }
+    #coupon, #subtotal {
+      flex: 1 1 300px;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    #coupon input {
+      width: 70%;
+      padding: 8px;
+      margin-right: 10px;
+    }
+    button.normal {
+      background-color: #e83e8c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button.normal:hover {
+      background-color: #d63384;
+    }
+    .footer {
+      background-color: #212529;
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .footer-col h4 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .footer-icons i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .back-to-top a {
+      color: #e83e8c;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="ecommerce.html">Smoothie Bliss</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item"><a class="nav-link" href="ecommerce.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link active" href="cart.html"><i class="fas fa-shopping-bag"></i> <span id="cart-count"></span></a></li>
+          </ul>
+          <form class="d-flex ms-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h2 class="text-center mb-4">Your Shopping Cart</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Remove</th>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body"></tbody>
+    </table>
+
+    <div id="cart-add">
+      <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+          <input type="text" id="coupon-code" placeholder="Enter coupon code" />
+          <button class="normal" id="apply-coupon">Apply</button>
+        </div>
+      </div>
+
+      <div id="subtotal">
+        <h3>Cart Total</h3>
+        <table>
+          <tr><td>Subtotal</td><td id="cart-subtotal">₹0.00</td></tr>
+          <tr><td>Shipping</td><td>Free</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong id="cart-total">₹0.00</strong></td></tr>
+        </table>
+        <a href="checkout.html"><button class="normal mt-3">Proceed to Checkout</button></a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer section-p1">
+    <div class="footer-container">
+      <div class="footer-column">
+       
+        <h4>Smoothie Bliss</h4>
+        <p><strong>Address:</strong> Guru Ganesh Nivas</p>
+        <p><strong>Phone:</strong> <a href="tel:+917760603430">+91 77606 03430</a></p>
+        <p><strong>Hours:</strong> 6:30 AM – 12:00 PM</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Our Smoothies</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Order Online</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Newsletter</h4>
+        <p>Get the latest smoothie deals and updates straight to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp" aria-label="WhatsApp"></i></a>
+          <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube" aria-label="YouTube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#" class="back-to-top">⬆ Back to top</a>
+      <p>&copy; 2025 Smoothie Bliss · <a href="#">Privacy Policy</a> · <a href="#">Terms & Conditions</a></p>
+    </div>
+  </footer>
+
+  <script>
+    let discount = 0;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartBody = document.getElementById("cart-body");
+      const cartSubtotal = document.getElementById("cart-subtotal");
+      const cartTotal = document.getElementById("cart-total");
+
+      function updateCartDisplay() {
+        cartBody.innerHTML = "";
+        let subtotal = 0;
+
+        cart.forEach((item, index) => {
+          const totalPrice = item.price * item.quantity;
+          subtotal += totalPrice;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td><a href="#" onclick="removeItem(${index})"><i class="far fa-times-circle text-danger"></i></a></td>
+            <td><img src="images/${item.image}" width="70" style="object-fit: cover; height: 70px;"></td>
+            <td>${item.name}</td>
+            <td>₹${item.price.toFixed(2)}</td>
+            <td><input type="number" value="${item.quantity}" min="1" onchange="updateQty(${index}, this.value)"></td>
+            <td>₹${totalPrice.toFixed(2)}</td>
+          `;
+          cartBody.appendChild(row);
+        });
+
+        cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+        let finalTotal = subtotal * (1 - discount);
+        cartTotal.textContent = `₹${finalTotal.toFixed(2)}`;
+
+        updateCartCount();
+      }
+
+      window.removeItem = function (index) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+      };
+
+      window.updateQty = function (index, qty) {
+        cart[index].quantity = parseInt(qty);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+      };
+
+      function updateCartCount() {
+        const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+        const countEl = document.getElementById("cart-count");
+        if (countEl) countEl.textContent = count;
+      }
+
+      updateCartDisplay();
+    });
+
+    const applyCouponBtn = document.getElementById("apply-coupon");
+    const couponInput = document.getElementById("coupon-code");
+
+    applyCouponBtn.addEventListener("click", function () {
+      const code = couponInput.value.trim().toUpperCase();
+
+      if (code === "SMOOTHIE10") {
+        discount = 0.10;
+        alert("Coupon applied! You got 10% off.");
+      } else {
+        discount = 0;
+        alert("Invalid coupon code.");
+      }
+
+      // Recalculate totals
+      document.dispatchEvent(new Event("DOMContentLoaded"));
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="website.js"></script>
+</body>
+</html>

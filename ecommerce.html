@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smoothie Bliss</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons and Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="amu.css" />
+
+<style>
+    /* Header padding to avoid overlap with fixed-top navbar */
+    header {
+      padding-top: 70px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Centered page title -->
+    <div class="text-center my-4">   <!---adds vertical margin top and botton-->
+
+      <h1 class="display-3 fw-bold">Smoothie Bliss</h1>
+      <p class="lead">Wholesome, Fresh, and Delicious Smoothies</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-sm">
+      <div class="container-fluid">
+        <!-- Brand name in normal white text -->
+        <a class="navbar-brand" href="ecommerce.html" style="color: white; font-weight: 500;">
+          Smoothie Bliss
+        </a>
+
+        <!-- Hamburger button for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav links and search -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="ecommerce.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signin.html">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count"></span>
+              </a>
+            </li>
+          </ul>
+
+          <form class="d-flex ms-3" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  
+  <!-- Carousel container with rounded corners and shadow -->
+<div
+  id="myCarousel"
+  class="carousel slide mb-5"
+  data-bs-ride="carousel"
+  style="
+    max-width: 900px;
+    margin: 3rem auto 4rem auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(232, 62, 140, 0.4);
+   
+  "
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="0"
+      class="active"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="images/IMG-20250519-WA0003.jpg"
+        class="d-block w-100"
+        alt="Freshness in Every Sip"
+        style="height: 750px; object-fit: cover;"
+      />
+      <div
+        class="carousel-caption text-start"
+        style="
+          background: rgba(0, 0, 0, 0.35);
+          border-radius: 0 0 15px 15px;
+          padding: 2rem 3rem;
+        "
+      >
+        <h1>Freshness in Every Sip</h1>
+        <p>Start your day with our energizing smoothies made from farm-fresh fruits.</p>
+        <p><a class="btn btn-primary" href="#">Explore Our Menu</a></p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img
+        src="images/IMG-20250519-WA0004.jpg"
+        class="d-block w-100"
+        alt="Healthy Meets Delicious"
+        style="height: 750px; object-fit: cover;"
+      />
+      <div
+        class="carousel-caption text-start"
+        style="
+          background: rgba(0, 0, 0, 0.35);
+          border-radius: 0 0 15px 15px;
+          padding: 2rem 3rem;
+        "
+      >
+        <h1>Healthy Meets Delicious</h1>
+        <p>Fuel your body with our nutrient-packed smoothie bowls and blends.</p>
+        <p><a class="btn btn-primary" href="#">Discover Health Packs</a></p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img
+        src="images/IMG-20250519-WA0005.jpg"
+        class="d-block w-100"
+        alt="Taste the Tropics"
+        style="height: 750px; object-fit: cover;"
+      />
+      <div
+        class="carousel-caption text-end"
+        style="
+          background: rgba(0, 0, 0, 0.35);
+          border-radius: 0 0 15px 15px;
+          padding: 2rem 3rem;
+        "
+      >
+        <h1>Taste the Tropics</h1>
+        <p>Exotic flavors like dragon fruit, mango, and passionfruit await you.</p>
+        <p><a class="btn btn-primary" href="#">Try Something New</a></p>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#myCarousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#myCarousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<section id="feature"  class="section-p1"></section>
+  
+<section id="product1" class="section-p1">
+  <h2>Featured products</h2>
+  <p>Summer Collection </p>
+  <div class="pro-container">
+
+    
+      <div class="pro" onclick="selectProduct(1)">
+      <img src="images/IMG-20250519-WA0003.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Mango fruit smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+  
+      <div class="pro" onclick="selectProduct(2)">
+      <img src="images/IMG-20250519-WA0004.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Avacado fruit smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+  
+      <div class="pro" onclick="selectProduct(3)">
+      <img src="images/IMG-20250519-WA0005.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Dragon fruit smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+  
+      <div class="pro" onclick="selectProduct(4)">
+      <img src="images/IMG-20250519-WA0006.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Choco banana fruit smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+
+      <div class="pro" onclick="selectProduct(5)">
+      <img src="images/Smoothie-Bowl-8.jpeg" alt="" height="370px">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Strawberry banana smoothie </h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#">
+  <i class="fas fa-shopping-cart"></i></a>
+  </div>
+  
+      <div class="pro" onclick="selectProduct(6)">
+      <img src="C:\Users\USER\Pictures\reels\WhatsApp Image 2025-07-03 at 15.47.15_79200892.jpg" alt="" height="370px">
+      <div class="des">
+      <span>Desert</span>
+      <h5>Protien Moose</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+
+      <div class="pro" onclick="selectProduct(7)">
+      <img src="images/istockphoto-470509876-612x612.jpg" alt="" height="370px">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Green Detox</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+ 
+      <div class="pro" onclick="selectProduct(8)">
+      <img src="images/istockphoto-1081369140-612x612.jpg" alt="" height="370px">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Berry Shake</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+        ₹250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+
+      <div class="pro" onclick="selectProduct(9)">
+      <img src="images/Raspberry-Smoothie-Bowl-3.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Strawberry smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+          $250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+ 
+      <div class="pro" onclick="selectProduct(10)">
+      <img src="images/istockphoto-1397927499-612x612.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Apple Banana smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+          $250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+  <div class="pro" onclick="selectProduct(11)">
+      <img src="images/Blueberry-Banana-Smoothie-Bowl-13-500x500.jpg" alt="">
+      <div class="des">
+      <span>Smoothie</span>
+      <h5>Blueberry Banana smoothie</h5>
+      <div class="star">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <h4>
+          $250</h4>
+      </div>
+      
+<a href="#"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+  <div class="pro" onclick="selectProduct(12)">
+    <img src="images/tropical-smoothie-bowl-recipe-1.jpg" alt="">
+    <div class="des">
+    <span>Smoothie</span>
+    <h5>Tropical smoothie</h5>
+    <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <h4>
+        $250</h4>
+    </div>
+  
+</div>
+</section>
+
+<script>
+  function selectProduct(id) {
+    localStorage.setItem("selectedProductId", id);
+    window.location.href = "sproduct.html";
+  }
+</script>
+<script>
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = count;
+}
+  </script>
+
+  
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Why people choose us!</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-toggles2"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Affordable Prices</h3>
+          <p>We offer high-quality meals at prices that fit your budget — great taste doesn't have to be expensive.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-cpu-fill"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Healthy & Fresh</h3>
+          <p>We use only the freshest ingredients, carefully selected to ensure every meal is both nutritious and delicious.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-tools"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Customized to Your Taste</h3>
+          <p>
+            Whether you have dietary needs or flavor preferences, we let you personalize your order exactly the way you want it.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>     
+  <!-- Footer -->
+<footer class="footer section-p1">
+  <div class="footer-container">
+    
+    <!-- Brand & Contact Info -->
+    <div class="footer-column">
+      
+      <h4>Smoothie Bliss</h4>
+      <p><strong>Address:</strong> Guru Ganesh Nivas</p>
+      <p><strong>Phone:</strong> <a href="tel:+917760603430">+91 77606 03430</a></p>
+      <p><strong>Hours:</strong> 6:30 AM – 12:00 PM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Smoothies</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Order Online</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="footer-column">
+      <h4>Newsletter</h4>
+      <p>Get the latest smoothie deals and updates straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp" aria-label="WhatsApp"></i></a>
+        <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube" aria-label="YouTube"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <a href="#" class="back-to-top">⬆ Back to top</a>
+    <p>&copy; 2025 Smoothie Bliss · 
+      <a href="#">Privacy Policy</a> · 
+      <a href="#">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
+
+
+
+  <!-- Bootstrap JS Bundle (Popper.js included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
