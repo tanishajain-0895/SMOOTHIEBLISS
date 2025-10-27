@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Carousel Template</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="amu.css">
+  <style>
+    body {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      color: rgb(var(--bs-tertiary-color-rgb));
+    }
+    
+    #product1{
+        text-align: center;
+    }
+    #product1 .pro-container{
+    display:flex;
+    padding-top:20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#product1 .pro{
+    width:23%;
+    min-width:250px;
+    padding:10px 12px;
+    border:1px solid white;
+    border-radius:25 px;
+    cursor:pointer;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.02);
+    margin:15px 0;
+transition:0.2s;
+position: relative;
+
+}
+#product1 .pro:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, .25);
+}
+#product1 .pro img{
+    width:100%;
+    border-radius: 20px;
+}
+#product1 .pro .des{
+    text-align: start;
+    padding:10px 0;
+}
+#product1 .pro .des span{
+    color:#606063;
+    font-size: 12px;
+}
+#product1 .pro .des h5{
+    padding-top: 7px;
+    color:black;
+    font-size: 14px;
+}
+#product1 .pro .des i{
+    font-size: 12px;
+    color:rgb(243,181,25);
+}
+#product1 .pro .des h4{
+    padding-top: 7px;
+    font-weight: 700;
+    color: #088178;font-size: 15px;
+}
+#product1 .pro .cart{
+    width:40px;
+    height:40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: aliceblue;
+    font-weight: 500;
+    color:#088178 ;
+    border:1px solid #cce7d0;
+    position: absolute;
+    bottom:20px;
+    right:10px;
+}
+
+/* Container */
+#prodetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Image section */
+.single-pro-image {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.single-pro-image img#MainImg {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+/* Optional gallery of thumbnails */
+.small-img-group {
+  display: flex;
+  gap: 10px;
+}
+
+.small-img-group img {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  cursor: pointer;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+
+
+/* Details section */
+.single-pro-details {
+  flex: 1 1 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.single-pro-details h6 {
+  color: #777;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.single-pro-details h4#productName {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.single-pro-details h2#productPrice {
+  font-size: 26px;
+ color: #f06292;
+  margin: 5px 0 20px;
+  font-weight: 700;
+}
+
+.single-pro-details label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.single-pro-details select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.single-pro-details select:hover,
+.single-pro-details select:focus {
+  border-color: #ff6600;
+  outline: none;
+}
+
+.single-pro-details input#productQty {
+  width: 80px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  margin-right: 15px;
+  text-align: center;
+}
+
+button.normal#addToCart {
+  padding: 12px 25px;
+  background-color: #f06292;;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.normal#addToCart:hover {
+  background-color: #e55b00;
+}
+
+.single-pro-details h4 {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #333;
+}
+
+.single-pro-details span#productDesc {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.back-arrow {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  margin: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.back-arrow i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.back-arrow:hover {
+  color: #007BFF;
+}
+
+
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-sm">
+      <div class="container-fluid">
+        <!-- Brand name in normal white text -->
+        <a class="navbar-brand" href="ecommerce.html" style="color: white; font-weight: 500;">
+          Smoothie Bliss
+        </a>
+
+        <!-- Hamburger button for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav links and search -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="ecommerce.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signin.html">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count"></span>
+              </a>
+            </li>
+          </ul>
+
+          <form class="d-flex ms-3" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+      <a href="ecommerce.html" class="back-arrow">
+        <i class="fas fa-arrow-left"></i> 
+      </a>
+      <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+          <img id="MainImg" width="100%" alt="Main Image">
+          <div class="small-img-group" id="gallery"></div>
+        </div>
+      
+        <div class="single-pro-details">
+          <h6>Home/Smoothies</h6>
+          <h4 id="productName">Product Name</h4>
+          <h2 id="productPrice">₹ 0.00</h2>
+      
+          <label>Specifications</label>
+          <select>
+            <option>Size</option>
+            <option>Calories</option>
+          </select>
+      
+          <input type="number" value="1" id="productQty">
+          <button class="normal" id="addToCart">Add to cart</button>
+  
+<a href="cart.html" class="normal" style="margin-left: 10px;">🛒 Go to Cart</a>
+
+      
+          <h4>Product Details</h4>
+          <span id="productDesc">Product description will go here.</span>
+        </div>
+      </section>
+      
+
+      
+
+
+
+
+<script>
+  
+ 
+  const products = [
+    {
+      id: 1,
+      name: "Mango fruit smoothie",
+      price: 250,
+      image: "IMG-20250519-WA0003.jpg",
+      description: "Delicious mango smoothie with fresh mangoes and ice."
+    },
+    {
+      id: 2,
+      name: "Avocado fruit smoothie",
+      price: 250,
+      image: "IMG-20250519-WA0004.jpg",
+      description: "Creamy avocado smoothie full of nutrients."
+    },
+    {
+      id: 3,
+      name: "Dragon fruit smoothie",
+      price: 250,
+      image: "IMG-20250519-WA0005.jpg",
+      description: "Exotic dragon fruit smoothie, refreshing and healthy."
+    },
+    {
+      id: 4,
+      name: "Choco banana fruit smoothie",
+      price: 250,
+      image: "IMG-20250519-WA0006.jpg",
+      description: "Sweet chocolate and banana smoothie perfect for dessert."
+    },
+    {
+    id: 5,
+    name: "Strawberry banana smoothie",
+    price: 250,
+    image: "Smoothie-Bowl-8.jpeg",
+    description: "Sweet strawberry and banana blended smoothie."
+  },
+  {
+    id: 6,
+    name: "Protein Mousse",
+    price: 250,
+    image: "IMG-20250519-WA0008.jpg",
+    description: "High-protein dessert mousse."
+  },
+  {
+    id: 7,
+    name: "Green Detox",
+    price: 250,
+    image: "istockphoto-470509876-612x612.jpg",
+    description: "Green detox smoothie with spinach and fruits."
+  },
+  {
+    id: 8,
+    name: "Berry Shake",
+    price: 250,
+    image: "istockphoto-1081369140-612x612.jpg",
+    description: "Berries blended into a creamy shake."
+  },
+  {
+    id: 9,
+    name: "Strawberry smoothie",
+    price: 250,
+    image: "Raspberry-Smoothie-Bowl-3.jpg",
+    description: "Fresh strawberry smoothie bowl."
+  },
+  {
+    id: 10,
+    name: "Apple Banana smoothie",
+    price: 250,
+    image: "istockphoto-1397927499-612x612.jpg",
+    description: "Smoothie made from fresh apples and bananas."
+  },
+  {
+    id: 11,
+    name: "Blueberry Banana smoothie",
+    price: 250,
+    image: "Blueberry-Banana-Smoothie-Bowl-13-500x500.jpg",
+    description: "Blueberry and banana smoothie bowl for breakfast."
+  },
+  {
+    id: 12,
+    name: "Tropical smoothie",
+    price: 250,
+    image: "tropical-smoothie-bowl-recipe-1.jpg",
+    description: "A tropical fruit blend in smoothie form."
+  }
+];
+
+
+  const productId = localStorage.getItem("selectedProductId");
+  const product = products.find(p => p.id == productId);
+
+  document.getElementById("MainImg").src = "images/" + product.image;
+  document.getElementById("productName").textContent = product.name;
+  document.getElementById("productPrice").textContent = `₹${product.price}`;
+  document.getElementById("productDesc").textContent = product.description;
+
+  document.getElementById("addToCart").addEventListener("click", () => {
+    const quantity = parseInt(document.getElementById("productQty").value) || 1;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    
+    const existing = cart.find(item => item.id == product.id);
+    if (existing) {
+      existing.quantity += quantity;
+    } else {
+      cart.push({ ...product, quantity });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart!");
+  });
+</script>
+
+<!-- Footer -->
+<footer class="footer section-p1">
+  <div class="footer-container">
+    
+    <!-- Brand & Contact Info -->
+    <div class="footer-column">
+     
+      <h4>Smoothie Bliss</h4>
+      <p><strong>Address:</strong> Guru Ganesh Nivas</p>
+      <p><strong>Phone:</strong> <a href="tel:+917760603430">+91 77606 03430</a></p>
+      <p><strong>Hours:</strong> 6:30 AM – 12:00 PM</p>
+    </div>
+
+    <!-- Quick Links -->
+     
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Smoothies</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Order Online</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="footer-column">
+      <h4>Newsletter</h4>
+      <p>Get the latest smoothie deals and updates straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp" aria-label="WhatsApp"></i></a>
+        <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube" aria-label="YouTube"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <a href="#" class="back-to-top">⬆ Back to top</a>
+    <p>&copy; 2025 Smoothie Bliss · 
+      <a href="#">Privacy Policy</a> · 
+      <a href="#">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
+
+
+
+    
+    
+  
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="website.js"></script>
+</body>
+</html>
